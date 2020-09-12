@@ -1,0 +1,24 @@
+<!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportHeight="1024.0"
+    android:viewportWidth="1024.0">
+    <path
+        android:fillColor="#61e290"
+        android:pathData="M761.4,136.9C588.3,90.9 512,238.2 512,238.2 512,238.2 435.7,90.9 262.6,136.9 89.6,183 -5.3,414.9 208.7,623 422.7,831.1 512,910.2 512,910.2 512,910.2 601.3,831.1 815.3,623 1029.3,414.9 934.4,183 761.4,136.9"/>
+</vector>

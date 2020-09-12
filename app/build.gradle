@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.xin.wanandroid"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //Google标准UI库
+    implementation 'com.google.android.material:material:1.2.1'
+    //kotlin协程
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+    //上拉加载下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-21'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-21'
+    //lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    //liveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha02"
+    // viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    //万能RV库
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    //cookie持久化
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    //网络请求
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //gson解析
+    implementation "com.google.code.gson:gson:2.8.5"
+    //沉淀式
+    implementation "com.gyf.immersionbar:immersionbar:3.0.0"
+    //AUC万能工具类
+    implementation 'com.blankj:utilcodex:1.29.0'
+    //behavior
+    implementation 'com.github.githubwing:ByeBurger:1.2.3'
+    //仿ios dialog
+    implementation 'com.kongzue.dialog_v3x:dialog:3.2.0'
+    //图片加载库
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    //仿崩溃
+    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+    //轮播图
+    implementation 'com.youth.banner:banner:1.4.10'
+    //svg
+    implementation 'com.jaredrummler:animated-svg-view:1.0.5'
+    //替代SP
+    implementation 'com.tencent:mmkv:1.2.2'
+    //Bus,消息总线
+    implementation 'com.jeremyliao:live-event-bus-x:1.7.2'
+    //轻量级web
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4'
+}

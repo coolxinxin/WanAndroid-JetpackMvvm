@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024.0"
+    android:viewportHeight="1024.0">
+    <path
+        android:fillColor="#FF8359"
+        android:pathData="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z"
+        tools:ignore="VectorPath" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M662.186667 742.4H361.813333a72.413867 72.413867 0 0 1-71.68-73.0112V363.144533A72.4224 72.4224 0 0 1 361.813333 290.133333H512a14.139733 14.139733 0 0 1 0 28.270934H361.813333a44.373333 44.373333 0 0 0-43.904 44.740266v306.218667a44.373333 44.373333 0 0 0 43.904 44.7744h300.373334a44.373333 44.373333 0 0 0 43.9296-44.7488v-122.88a13.866667 13.866667 0 1 1 27.733333 0v122.88A72.4224 72.4224 0 0 1 662.186667 742.4z m70.826666-364.023467a14.933333 14.933333 0 0 1-0.503466 1.706667 14.037333 14.037333 0 0 1-1.152 1.800533c-0.1536 0.247467-0.1792 0.5376-0.349867 0.768l-58.794667 79.914667a13.764267 13.764267 0 0 1-23.517866-2.1504 14.353067 14.353067 0 0 1 1.3056-14.813867l41.5232-56.439466c-81.570133 4.1472-142.830933 28.16-181.879467 72.072533-54.2464 60.945067-46.933333 140.458667-46.8736 141.252267a14.088533 14.088533 0 0 1-12.3392 15.5136 12.066133 12.066133 0 0 1-1.467733 0.059733 13.917867 13.917867 0 0 1-13.755734-12.612267c-0.392533-3.729067-8.874667-92.347733 53.632-162.8672 44.2368-49.92 111.931733-77.397333 201.480534-81.860266L650.581333 313.429333a14.318933 14.318933 0 0 1 1.527467-19.925333 13.653333 13.653333 0 0 1 19.549867 1.553067l58.794666 69.930666a13.602133 13.602133 0 0 1 0.853334 1.425067c0.264533 0.4096 0.529067 0.776533 0.750933 1.2032a14.208 14.208 0 0 1 1.518933 4.4544v0.110933a14.446933 14.446933 0 0 1-0.238933 4.8384c0.042667 0.4864-0.110933 0.904533-0.247467 1.3568z" />
+</vector>
