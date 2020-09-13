@@ -66,7 +66,57 @@ interface ApiService {
     @POST("lg/collect/{id}/json")
     suspend fun collect(@Path("id") id: Int): ApiResults<*>
 
+    @FormUrlEncoded
+    @POST("lg/collect/add/json")
+    suspend fun collect(
+        @Field("title") title: String,
+        @Field("author") author: String,
+        @Field("link") link: String
+    )
+
     @POST("lg/uncollect_originId/{id}/json")
     suspend fun unCollect(@Path("id") id: Int): ApiResults<*>
 
+    @GET("/tree/json")
+    suspend fun getKnowledgeData(): ApiResults<MutableList<KnowledgeData>>
+
+    @GET("/article/list/{page}/json")
+    suspend fun getKnowledgeArticleData(
+        @Path("page") page: Int,
+        @Query("cid") cid: Int
+    ): ApiResults<ArticleData>
+
+    @GET("/navi/json")
+    suspend fun getNavigationData(): ApiResults<MutableList<NavigationData>>
+
+    @GET("project/tree/json")
+    suspend fun getProjectData(): ApiResults<MutableList<ProjectData>>
+
+    @GET("project/list/{page}/json")
+    suspend fun getProjectListData(
+        @Path("page") page: Int,
+        @Query("cid") cid: Int
+    ): ApiResults<ArticleData>
+
+    @GET("/user_article/list/{page}/json")
+    suspend fun getSquareData(@Path("page") page: Int): ApiResults<ArticleData>
+
+    @GET("/wenda/list/{page}/json ")
+    suspend fun getAnswerData(@Path("page") page: Int): ApiResults<ArticleData>
+
+    @GET("wxarticle/chapters/json")
+    suspend fun getWeChatData(): ApiResults<MutableList<WeChatData>>
+
+    @GET("wxarticle/list/{id}/{page}/json")
+    suspend fun getWeChatListData(
+        @Path("id") id: Int,
+        @Path("page") page: Int
+    ): ApiResults<ArticleData>
+
+    @GET("wxarticle/list/{id}/{page}/json")
+    suspend fun getWeChatSearchData(
+        @Path("id") id: Int,
+        @Path("page") page: Int,
+        @Query("k") k: String
+    ): ApiResults<ArticleData>
 }

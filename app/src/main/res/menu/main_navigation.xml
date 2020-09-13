@@ -10,17 +10,17 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/tabKnowledge"
+        android:id="@+id/tabSquare"
         android:enabled="true"
-        android:icon="@drawable/icon_knowledge"
-        android:title="知识体系"
+        android:icon="@drawable/icon_square"
+        android:title="广场"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/tabNavigation"
+        android:id="@+id/tabWeChatPublic"
         android:enabled="true"
-        android:icon="@drawable/icon_navigation"
-        android:title="导航"
+        android:icon="@drawable/icon_wechat_public"
+        android:title="公众号"
         app:showAsAction="ifRoom" />
 
     <item

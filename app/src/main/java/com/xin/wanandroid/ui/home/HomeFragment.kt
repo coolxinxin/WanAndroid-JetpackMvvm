@@ -30,15 +30,15 @@ import com.xin.wanandroid.core.bean.BannerData
 import com.xin.wanandroid.ext.isVisible
 import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
+import com.xin.wanandroid.ui.common.ArticleCommonAdapter
 import com.xin.wanandroid.ui.webview.WebViewActivity
 import com.xin.wanandroid.util.ImageLoader
 import com.xin.wanandroid.util.LiveBus
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.common_reload.*
-import java.util.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  *
@@ -58,7 +58,7 @@ import java.util.*
  */
 class HomeFragment : BaseVMFragment<HomeViewModel>() {
 
-    private lateinit var mAdapter: HomeAdapter
+    private lateinit var mAdapter: ArticleCommonAdapter
     private lateinit var mBanner: Banner
 
     override fun getViewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
@@ -67,7 +67,7 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
 
     @SuppressLint("InflateParams")
     override fun initEvent() {
-        mAdapter = HomeAdapter(null).apply {
+        mAdapter = ArticleCommonAdapter().apply {
             setOnItemChildClickListener { _, view, position ->
                 val data = getItem(position)
                 if (view.id == R.id.ivLike) {
@@ -109,7 +109,7 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
             }
 
         })
-        btnReload.setOnNoRepeatClickListener {
+        btReload.setOnNoRepeatClickListener {
             mViewModel.getHomeData()
         }
     }
@@ -133,7 +133,7 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
             })
 
             isReload.observe(this@HomeFragment, Observer {
-                reload.isVisible = it
+                reloadHome.isVisible = it
             })
 
             LiveBus.observe<Boolean>(Constant.LOGIN_STATUS, this@HomeFragment, Observer {

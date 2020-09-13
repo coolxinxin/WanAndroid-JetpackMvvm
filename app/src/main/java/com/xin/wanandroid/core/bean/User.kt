@@ -36,7 +36,7 @@ data class User(
     val admin: Boolean,
     val chapterTops: List<Any>,
     val coinCount: Int,
-    val collectIds: List<Any>,
+    val collectIds: List<Int>,
     val email: String,
     val icon: String,
     val id: Int,

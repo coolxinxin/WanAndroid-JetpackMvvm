@@ -13,12 +13,20 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui.navigation
+package com.xin.wanandroid.ui.project.projectList
 
-import com.xin.wanandroid.base.BaseViewModel
+import android.graphics.Color
+import com.bumptech.glide.Glide
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.xin.wanandroid.R
+import com.xin.wanandroid.core.bean.DataX
+import com.xin.wanandroid.ext.html
+import com.xin.wanandroid.ext.isVisible
+import kotlinx.android.synthetic.main.item_project_list.view.*
+import java.util.*
 
 /**
- *
  *   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
  * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
  * ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
@@ -28,9 +36,30 @@ import com.xin.wanandroid.base.BaseViewModel
  *  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
- *@author : Leo
- *@date : 2020/9/10 9:44
- *@since : xinxiniscool@gmail.com
- *@desc :
+ * @author : Leo
+ * @date : 2020/9/13 11:11
+ * @desc :
+ * @since : xinxiniscool@gmail.com
  */
-class NavigationViewModel : BaseViewModel()
+class ProjectListAdapter : BaseQuickAdapter<DataX, BaseViewHolder>(R.layout.item_project_list) {
+
+
+    override fun convert(holder: BaseViewHolder, item: DataX) {
+        holder.itemView.apply {
+            Glide.with(context).load(item.envelopePic).into(ivProjectListIcon)
+            tvProjectListTitle.text = item.title
+            tvProjectListContent.text = item.desc.html()
+            tvProjectListContent.isVisible = item.desc.isNotEmpty()
+            tvProjectListTime.text = item.niceDate
+            tvProjectListAuthor.text = item.author
+            val random = Random()
+            tvProjectListAuthor.setTextColor(
+                Color.rgb(
+                    random.nextInt(150),
+                    random.nextInt(150),
+                    random.nextInt(150)
+                )
+            )
+        }
+    }
+}

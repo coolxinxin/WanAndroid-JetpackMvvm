@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui.navigation
+package com.xin.wanandroid.ui.square.knowledge
 
-import com.xin.wanandroid.R
-import com.xin.wanandroid.base.BaseVMFragment
+import androidx.lifecycle.MutableLiveData
+import com.xin.wanandroid.base.BaseViewModel
+import com.xin.wanandroid.core.bean.KnowledgeData
 
 /**
  *
@@ -30,22 +31,22 @@ import com.xin.wanandroid.base.BaseVMFragment
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
  *@author : Leo
- *@date : 2020/9/10 9:43
+ *@date : 2020/9/10 9:42
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class NavigationFragment : BaseVMFragment<NavigationViewModel>() {
+class KnowledgeViewModel : BaseViewModel() {
 
-    override fun getViewModelClass(): Class<NavigationViewModel> = NavigationViewModel::class.java
-
-    override fun initLayoutView(): Int  = R.layout.fragment_navigation
-
-    override fun initEvent() {
-    }
-
-    override fun initData() {
-    }
-
-    override fun lazyLoadData() {
+    val knowledgeData: MutableLiveData<MutableList<KnowledgeData>> = MutableLiveData()
+    val isReload: MutableLiveData<Boolean> = MutableLiveData()
+    fun getKnowledgeData() {
+        isReload.value = false
+        request(
+            {
+                knowledgeData.value = mApiRepository.getKnowledgeData()
+            },{
+                isReload.value = knowledgeData.value.isNullOrEmpty()
+            }
+        )
     }
 }

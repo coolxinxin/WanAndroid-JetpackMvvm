@@ -25,9 +25,9 @@ import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.ext.isLogin
 import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
+import com.xin.wanandroid.ext.user
 import com.xin.wanandroid.ui.login.LoginActivity
 import com.xin.wanandroid.util.LiveBus
-import com.xin.wanandroid.util.UserManager
 import kotlinx.android.synthetic.main.fragment_mine.*
 
 /**
@@ -54,6 +54,9 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
 
     override fun initEvent() {
         loginStatus(isLogin)
+        clMineLogin.setOnNoRepeatClickListener {
+            mActivity.startActivity<LoginActivity>()
+        }
     }
 
     override fun initData() {
@@ -67,13 +70,14 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
 
     private fun loginStatus(isLogin: Boolean) {
         if (isLogin) {
+            clMineLogin.isEnabled = false
             tvMineLogin.visibility = View.GONE
             tvMineName.run {
-                text = UserManager.getUser()?.username
+                text = user?.username
                 visibility = View.VISIBLE
             }
             tvMineId.run {
-                val id = "ID: ${UserManager.getUser()?.id}"
+                val id = "ID: ${user?.id}"
                 text = id
                 visibility = View.VISIBLE
             }
@@ -84,13 +88,11 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
                 visibility = View.VISIBLE
             }
         } else {
+            clMineLogin.isEnabled = true
             tvMineLogin.visibility = View.VISIBLE
             tvMineName.visibility = View.GONE
             tvMineId.visibility = View.GONE
             rlLogout.visibility = View.GONE
-            clMineLogin.setOnNoRepeatClickListener {
-                mActivity.startActivity<LoginActivity>()
-            }
         }
     }
 

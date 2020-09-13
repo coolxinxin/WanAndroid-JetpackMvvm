@@ -21,8 +21,8 @@ import com.xin.wanandroid.base.BaseViewModel
 import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.core.bean.BannerData
 import com.xin.wanandroid.core.bean.DataX
+import com.xin.wanandroid.ext.user
 import com.xin.wanandroid.util.LiveBus
-import com.xin.wanandroid.util.UserManager
 
 /**
  *
@@ -129,7 +129,7 @@ class HomeViewModel : BaseViewModel() {
     fun updateCollectListState(isLogin: Boolean) {
         val list = articleData.value
         if (isLogin) {
-            val collectIds = UserManager.getUser()?.collectIds ?: return
+            val collectIds = user?.collectIds ?: return
             list?.forEach { it.collect = collectIds.contains(it.id) }
         } else {
             list?.forEach { it.collect = false }

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui
+package com.xin.wanandroid.ui.main
 
 import android.os.CountDownTimer
 import com.xin.wanandroid.R
@@ -21,6 +21,7 @@ import com.xin.wanandroid.app.MyApp
 import com.xin.wanandroid.base.BaseSimpleActivity
 import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
+import com.xin.wanandroid.ui.main.MainActivity
 import com.xin.wanandroid.widget.ModelSVG
 import kotlinx.android.synthetic.main.activity_welcome.*
 

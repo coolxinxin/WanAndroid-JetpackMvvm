@@ -60,6 +60,8 @@ open class BaseViewModel : ViewModel() {
     }
 
     val mApiRepository by lazy { ApiRepository() }
+    //不喜欢使用Bus可以将数据放到Base中共享
+//    val collect: MutableList<Boolean> = MutableList()
 
     private lateinit var mOnDialogListener: OnDialogListener
 

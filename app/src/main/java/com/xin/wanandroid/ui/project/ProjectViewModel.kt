@@ -15,7 +15,9 @@
 
 package com.xin.wanandroid.ui.project
 
+import androidx.lifecycle.MutableLiveData
 import com.xin.wanandroid.base.BaseViewModel
+import com.xin.wanandroid.core.bean.ProjectData
 
 /**
  *
@@ -33,4 +35,19 @@ import com.xin.wanandroid.base.BaseViewModel
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class ProjectViewModel : BaseViewModel()
+class ProjectViewModel : BaseViewModel() {
+
+    val isReload: MutableLiveData<Boolean> = MutableLiveData()
+    val projectData: MutableLiveData<MutableList<ProjectData>> = MutableLiveData()
+
+    fun getProjectData() {
+        isReload.value = false
+        request(
+            {
+                projectData.value = mApiRepository.getProjectData()
+            }, {
+                isReload.value = projectData.value.isNullOrEmpty()
+            }
+        )
+    }
+}

@@ -22,13 +22,12 @@ import androidx.core.content.ContextCompat
 import cat.ereza.customactivityoncrash.config.CaocConfig
 import com.bumptech.glide.Glide
 import com.scwang.smartrefresh.header.PhoenixHeader
-import com.scwang.smartrefresh.header.TaurusHeader
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter
 import com.tencent.mmkv.MMKV
 import com.xin.wanandroid.R
-import com.xin.wanandroid.ui.WelcomeActivity
+import com.xin.wanandroid.ui.main.WelcomeActivity
 
 
 /**
@@ -65,9 +64,9 @@ class MyApp : Application() {
         CaocConfig.Builder.create()
             .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //default: CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM
             .enabled(true)//是否启用CustomActivityOnCrash崩溃拦截机制
-            .showErrorDetails(false) //是否必须显示包含错误详细信息的按钮 default: true
-            .showRestartButton(false) //是否必须显示“重新启动应用程序”按钮或“关闭应用程序”按钮default: true
-            .logErrorOnRestart(false) //是否必须重新堆栈堆栈跟踪 default: true
+            .showErrorDetails(true) //是否必须显示包含错误详细信息的按钮 default: true
+            .showRestartButton(true) //是否必须显示“重新启动应用程序”按钮或“关闭应用程序”按钮default: true
+            .logErrorOnRestart(true) //是否必须重新堆栈堆栈跟踪 default: true
             .trackActivities(true) //是否必须跟踪用户访问的活动及其生命周期调用 default: false
             .minTimeBetweenCrashesMs(2500) //应用程序崩溃之间必须经过的时间 default: 3000
             .restartActivity(WelcomeActivity::class.java) // 重启的activity

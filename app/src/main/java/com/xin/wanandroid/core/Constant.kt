@@ -47,4 +47,6 @@ object Constant {
 
     const val ARTICLE_COLLECT = "article_collect"
 
+    const val KNOWLEDGE_DATA = "knowledge_data"
+
 }

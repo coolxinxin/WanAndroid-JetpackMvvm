@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui.knowledge
+package com.xin.wanandroid.ui.square.navigation
 
+import androidx.lifecycle.MutableLiveData
 import com.xin.wanandroid.base.BaseViewModel
+import com.xin.wanandroid.core.bean.NavigationData
 
 /**
  *
@@ -29,8 +31,24 @@ import com.xin.wanandroid.base.BaseViewModel
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
  *@author : Leo
- *@date : 2020/9/10 9:42
+ *@date : 2020/9/10 9:44
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class KnowledgeViewModel :BaseViewModel()
+class NavigationViewModel : BaseViewModel() {
+
+    val isReload: MutableLiveData<Boolean> = MutableLiveData()
+    val navigationData: MutableLiveData<MutableList<NavigationData>> = MutableLiveData()
+
+    fun getNavigationData() {
+        isReload.value = false
+        request(
+            {
+                val navigationData = mApiRepository.getNavigationData()
+                this.navigationData.value = navigationData
+            }, {
+                isReload.value = navigationData.value.isNullOrEmpty()
+            }
+        )
+    }
+}

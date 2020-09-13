@@ -21,18 +21,20 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.lifecycle.Observer
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient
 import com.just.agentweb.WebChromeClient
 import com.kongzue.dialog.util.DialogSettings
 import com.kongzue.dialog.v3.ShareDialog
 import com.xin.wanandroid.R
-import com.xin.wanandroid.base.BaseSimpleActivity
+import com.xin.wanandroid.base.BaseVMActivity
 import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.ext.html
+import com.xin.wanandroid.ext.user
+import com.xin.wanandroid.util.LiveBus
 import kotlinx.android.synthetic.main.activity_webview.*
 import kotlinx.android.synthetic.main.common_toolbar.*
-import java.util.*
 
 /**
  *
@@ -50,7 +52,7 @@ import java.util.*
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class WebViewActivity : BaseSimpleActivity() {
+class WebViewActivity : BaseVMActivity<WebViewModel>() {
 
     private lateinit var mAgentWeb: AgentWeb
     private var url: String? = ""
@@ -59,10 +61,13 @@ class WebViewActivity : BaseSimpleActivity() {
     private var isCollect: Boolean = false
     private var mItemCollect: MenuItem? = null
 
+    override fun getViewModelClass(): Class<WebViewModel> = WebViewModel::class.java
+
     override fun initLayoutView(): Int = R.layout.activity_webview
 
     override fun initEvent() {
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         toolbar.apply {
             setNavigationIcon(R.drawable.ic_arrow_back_white_24dp)
             setNavigationOnClickListener {
@@ -93,22 +98,37 @@ class WebViewActivity : BaseSimpleActivity() {
             .createAgentWeb()
             .ready()
             .go(url)
+        LiveBus.observe<Pair<Int, Boolean>>(Constant.COLLECT_STATUS, this, Observer {
+            collectStatus(it.second)
+        })
+        LiveBus.observe<Boolean>(Constant.LOGIN_STATUS, this, Observer {
+            if (it) {
+                user?.collectIds?.let { it1 ->
+                    collectStatus(it1.contains(id))
+                }
+            }
+        })
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (id != -1) {
-            menuInflater.inflate(R.menu.menu_article_common, menu)
-            mItemCollect = menu?.findItem(R.id.item_collect)
-            if (isCollect) {
-                mItemCollect?.title = "取消收藏"
-                mItemCollect?.setIcon(R.drawable.icon_like)
-            } else {
-                mItemCollect?.title = "收藏"
-                mItemCollect?.setIcon(R.drawable.icon_unlike)
-            }
+        menuInflater.inflate(R.menu.menu_article_common, menu)
+        mItemCollect = menu?.findItem(R.id.item_collect)
+        collectStatus(isCollect)
+        if (id == -1) {
+            mItemCollect?.isVisible = false
         }
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun collectStatus(isCollect: Boolean) {
+        if (isCollect) {
+            mItemCollect?.title = "取消收藏"
+            mItemCollect?.setIcon(R.drawable.icon_like)
+        } else {
+            mItemCollect?.title = "收藏"
+            mItemCollect?.setIcon(R.drawable.icon_unlike)
+        }
     }
 
     /**
@@ -152,40 +172,30 @@ class WebViewActivity : BaseSimpleActivity() {
             .setStyle(DialogSettings.STYLE.STYLE_IOS)
             .setItems(itemList)
             .setOnItemClickListener { _, _, item ->
-                val intent = Intent(Intent.ACTION_SEND)
-                //待集成分享通道
-                when (item.text) {
-                    "QQ" -> {
-                        intent.putExtra(
-                            Intent.EXTRA_TEXT, getString(
-                                R.string.share_type_url,
-                                getString(R.string.app_name), title, url
-                            )
+                try {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.putExtra(
+                        Intent.EXTRA_TEXT, getString(
+                            R.string.share_type_url,
+                            getString(R.string.app_name), title, url
                         )
-                    }
-                    "微信" -> {
-                        intent.putExtra(
-                            Intent.EXTRA_TEXT, getString(
-                                R.string.share_type_url,
-                                getString(R.string.app_name), title, url
-                            )
-                        )
-                    }
-                    else -> {
-                        intent.putExtra(
-                            Intent.EXTRA_TEXT, getString(
-                                R.string.share_type_url,
-                                getString(R.string.app_name), title, url
-                            )
-                        )
-                    }
+                    )
+                    intent.type = "text/plain"
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    showErrorDialog("未安装手机${item.text}或安装的版本不支持")
                 }
                 false
             }.show()
     }
 
     private fun collectEvent() {
-
+        if (isCollect) {
+            mViewModel.unCollect(id)
+        } else {
+            mViewModel.collect(id)
+        }
     }
 
     override fun onResume() {

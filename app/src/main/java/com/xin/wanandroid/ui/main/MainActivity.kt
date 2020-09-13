@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui
+package com.xin.wanandroid.ui.main
 
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -24,12 +25,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseSimpleActivity
 import com.xin.wanandroid.ui.home.HomeFragment
-import com.xin.wanandroid.ui.knowledge.KnowledgeFragment
 import com.xin.wanandroid.ui.mine.MineFragment
-import com.xin.wanandroid.ui.navigation.NavigationFragment
 import com.xin.wanandroid.ui.project.ProjectFragment
+import com.xin.wanandroid.ui.square.SquareFragment
+import com.xin.wanandroid.ui.wechat.WeChatFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.common_toolbar.*
 
 class MainActivity : BaseSimpleActivity() {
 
@@ -47,15 +47,14 @@ class MainActivity : BaseSimpleActivity() {
     override fun initData() {
         initFragment()
         initBottomNavigationView()
-        toolbar.visibility = View.GONE
         showFragment("首页", 0)
     }
 
     private fun initFragment() {
         mFragments = ArrayList()
         mFragments.add(HomeFragment())
-        mFragments.add(KnowledgeFragment())
-        mFragments.add(NavigationFragment())
+        mFragments.add(SquareFragment())
+        mFragments.add(WeChatFragment())
         mFragments.add(ProjectFragment())
         mFragments.add(MineFragment())
     }
@@ -64,23 +63,18 @@ class MainActivity : BaseSimpleActivity() {
         bottom_navigation_view.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.tabHome -> {
-                    toolbar.visibility = View.GONE
                     showFragment("首页", 0)
                 }
-                R.id.tabKnowledge -> {
-                    toolbar.visibility = View.VISIBLE
-                    showFragment("知识体系", 1)
+                R.id.tabSquare -> {
+                    showFragment("广场中心", 1)
                 }
-                R.id.tabNavigation -> {
-                    toolbar.visibility = View.VISIBLE
-                    showFragment("导航", 2)
+                R.id.tabWeChatPublic -> {
+                    showFragment("微信公众号", 2)
                 }
                 R.id.tabProject -> {
-                    toolbar.visibility = View.VISIBLE
-                    showFragment("项目", 3)
+                    showFragment("项目列表", 3)
                 }
                 R.id.tabMine -> {
-                    toolbar.visibility = View.VISIBLE
                     showFragment("我的", 4)
                 }
             }
@@ -111,6 +105,19 @@ class MainActivity : BaseSimpleActivity() {
         }
         ft.show(targetFg)
         ft.commitAllowingStateLoss()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+//        val itemSearch = menu?.findItem(R.id.item_search)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_search ->{}
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {

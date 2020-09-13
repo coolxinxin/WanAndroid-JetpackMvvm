@@ -13,15 +13,18 @@
  * limitations under the License.
  */
 
-package com.xin.wanandroid.ui.home
+package com.xin.wanandroid.ui.square.knowledge
 
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import androidx.lifecycle.Observer
 import com.xin.wanandroid.R
-import com.xin.wanandroid.core.bean.DataX
-import com.xin.wanandroid.ext.html
+import com.xin.wanandroid.base.BaseVMFragment
+import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.ext.isVisible
-import kotlinx.android.synthetic.main.item_home.view.*
+import com.xin.wanandroid.ext.setOnNoRepeatClickListener
+import com.xin.wanandroid.ext.startActivity
+import com.xin.wanandroid.ui.square.knowledge.knowledgeArticle.KnowledgeArticleActivity
+import kotlinx.android.synthetic.main.common_reload.*
+import kotlinx.android.synthetic.main.fragment_knowledge.*
 
 /**
  *
@@ -35,34 +38,49 @@ import kotlinx.android.synthetic.main.item_home.view.*
  *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
  *           ░     ░ ░      ░  ░
  *@author : Leo
- *@date : 2020/9/11 11:32
+ *@date : 2020/9/10 9:41
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class HomeAdapter(data: MutableList<DataX>?) :
-    BaseQuickAdapter<DataX, BaseViewHolder>(R.layout.item_home, data) {
+class KnowledgeFragment : BaseVMFragment<KnowledgeViewModel>() {
 
-    override fun convert(holder: BaseViewHolder, item: DataX) {
-        holder.itemView.apply {
-            tvTitle.text = item.title
-            tvChapterName.text = item.chapterName
-            tvAuthor.text = when {
-                item.author.isNotEmpty() -> {
-                    item.author
+    private lateinit var mAdapter: KnowledgeAdapter
+
+    override fun getViewModelClass(): Class<KnowledgeViewModel> = KnowledgeViewModel::class.java
+
+    override fun initLayoutView(): Int = R.layout.fragment_knowledge
+
+    override fun initEvent() {
+        mAdapter = KnowledgeAdapter().apply {
+            setOnItemClickListener { _, _, position ->
+                mActivity.startActivity<KnowledgeArticleActivity> {
+                    putExtra(Constant.KNOWLEDGE_DATA,getItem(position))
                 }
-                item.shareUser.isNotEmpty() -> {
-                    item.shareUser
-                }
-                else -> "匿名作者"
             }
-            tvItemTop.isVisible = item.isTop
-            tvDesc.text = item.desc.html()
-            tvDesc.isVisible = item.desc.isNotEmpty()
-            tvNew.isVisible = item.fresh
-            tvProject.text = item.superChapterName
-            tvTime.text = item.niceDate
-            ivLike.isSelected = item.collect
         }
-        addChildClickViewIds(R.id.ivLike)
+        rvKnowledge.adapter = mAdapter
+        srfKnowledge.setOnRefreshListener {
+            mViewModel.getKnowledgeData()
+            it.finishRefresh()
+        }
+        srfKnowledge.setEnableLoadMore(false)
+        btReload.setOnNoRepeatClickListener {
+            mViewModel.getKnowledgeData()
+        }
+    }
+
+    override fun initData() {
+        mViewModel.apply {
+            knowledgeData.observe(this@KnowledgeFragment, Observer {
+                mAdapter.setList(it)
+            })
+            isReload.observe(this@KnowledgeFragment, Observer {
+                reloadKnowledge.isVisible = it
+            })
+        }
+    }
+
+    override fun lazyLoadData() {
+        mViewModel.getKnowledgeData()
     }
 }

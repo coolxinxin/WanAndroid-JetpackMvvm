@@ -53,4 +53,27 @@ class ApiRepository {
 
     suspend fun unCollect(id: Int) = HttpUtils.api.unCollect(id).apiData()
 
+    suspend fun getKnowledgeData() = HttpUtils.api.getKnowledgeData().apiData()
+
+    suspend fun getKnowledgeArticleData(page: Int, cid: Int) =
+        HttpUtils.api.getKnowledgeArticleData(page, cid).apiData()
+
+    suspend fun getNavigationData() = HttpUtils.api.getNavigationData().apiData()
+
+    suspend fun getProjectData() = HttpUtils.api.getProjectData().apiData()
+
+    suspend fun getProjectListData(page: Int, cid: Int) =
+        HttpUtils.api.getProjectListData(page, cid).apiData()
+
+    suspend fun getSquareData(page: Int) = HttpUtils.api.getSquareData(page).apiData()
+
+    suspend fun getAnswerData(page: Int) = HttpUtils.api.getAnswerData(page).apiData()
+
+    suspend fun getWeChatData() = HttpUtils.api.getWeChatData().apiData()
+
+    suspend fun getWeChatListData(id: Int, page: Int) =
+        HttpUtils.api.getWeChatListData(id, page).apiData()
+
+    suspend fun getWeChatSearchData(id: Int, page: Int, k: String) =
+        HttpUtils.api.getWeChatSearchData(id, page, k).apiData()
 }

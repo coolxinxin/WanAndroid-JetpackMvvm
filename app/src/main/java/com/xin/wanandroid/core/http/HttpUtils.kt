@@ -22,6 +22,7 @@ import com.xin.wanandroid.BuildConfig
 import com.xin.wanandroid.app.MyApp
 import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.core.http.api.ApiService
+import com.xin.wanandroid.core.http.interceptor.HttpNetInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -58,7 +59,7 @@ object HttpUtils {
     private val cookieJar =
         PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(MyApp.getInstance()))
     private val logInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor()
-    //    var httpNetInterceptor: HttpNetInterceptor = HttpNetInterceptor()
+    private val httpNetInterceptor: HttpNetInterceptor = HttpNetInterceptor()
 
     private fun getClient(): OkHttpClient {
         logInterceptor.level = if (BuildConfig.DEBUG) {
@@ -72,7 +73,7 @@ object HttpUtils {
             .readTimeout(45, TimeUnit.SECONDS)
             .writeTimeout(55, TimeUnit.SECONDS)
             .addInterceptor(logInterceptor)
-//        .addNetworkInterceptor(httpNetInterceptor)
+            .addNetworkInterceptor(httpNetInterceptor)
             .cookieJar(cookieJar)
             .build()
     }

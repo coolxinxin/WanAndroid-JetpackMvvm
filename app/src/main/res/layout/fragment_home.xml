@@ -19,7 +19,7 @@
     android:background="@color/colorBackground">
 
     <include
-        android:id="@+id/reload"
+        android:id="@+id/reloadHome"
         layout="@layout/common_reload"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
