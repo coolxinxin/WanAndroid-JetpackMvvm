@@ -22,11 +22,13 @@ import com.kongzue.dialog.v3.MessageDialog
 import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseVMFragment
 import com.xin.wanandroid.core.Constant
-import com.xin.wanandroid.ext.isLogin
-import com.xin.wanandroid.ext.setOnNoRepeatClickListener
-import com.xin.wanandroid.ext.startActivity
-import com.xin.wanandroid.ext.user
+import com.xin.wanandroid.ext.*
+import com.xin.wanandroid.ui.collect.CollectActivity
 import com.xin.wanandroid.ui.login.LoginActivity
+import com.xin.wanandroid.ui.rank.PersonRankActivity
+import com.xin.wanandroid.ui.rank.RankScoreActivity
+import com.xin.wanandroid.ui.setting.SettingActivity
+import com.xin.wanandroid.ui.webview.WebViewActivity
 import com.xin.wanandroid.util.LiveBus
 import kotlinx.android.synthetic.main.fragment_mine.*
 
@@ -56,6 +58,24 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
         loginStatus(isLogin)
         clMineLogin.setOnNoRepeatClickListener {
             mActivity.startActivity<LoginActivity>()
+        }
+        rlMineScores.setOnNoRepeatClickListener {
+            mActivity.checkStartActivity<PersonRankActivity>()
+        }
+        rlRankScores.setOnNoRepeatClickListener {
+            mActivity.checkStartActivity<RankScoreActivity>()
+        }
+        rlMineCollect.setOnNoRepeatClickListener {
+            mActivity.checkStartActivity<CollectActivity>()
+        }
+        rlMineWebsite?.setOnNoRepeatClickListener {
+            mActivity.startActivity<WebViewActivity> {
+                putExtra(Constant.ARTICLE_TITLE, "WanAndroid")
+                putExtra(Constant.ARTICLE_URL, "https://wanandroid.com")
+            }
+        }
+        rlSetting.setOnNoRepeatClickListener {
+            mActivity.startActivity<SettingActivity>()
         }
     }
 

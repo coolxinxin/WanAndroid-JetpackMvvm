@@ -72,10 +72,16 @@ interface ApiService {
         @Field("title") title: String,
         @Field("author") author: String,
         @Field("link") link: String
-    )
+    ): ApiResults<ArticleData>
 
     @POST("lg/uncollect_originId/{id}/json")
     suspend fun unCollect(@Path("id") id: Int): ApiResults<*>
+
+    @GET("lg/collect/list/{page}/json")
+    suspend fun getCollectList(@Path("page") page: Int): ApiResults<ArticleData>
+
+    @POST("lg/uncollect/{id}/json")
+    suspend fun cancelCollect(@Path("id") id: Int): ApiResults<*>
 
     @GET("/tree/json")
     suspend fun getKnowledgeData(): ApiResults<MutableList<KnowledgeData>>
@@ -119,4 +125,23 @@ interface ApiService {
         @Path("page") page: Int,
         @Query("k") k: String
     ): ApiResults<ArticleData>
+
+    @GET("/hotkey/json")
+    suspend fun getHotKeyData(): ApiResults<MutableList<HotKeyData>>
+
+    @FormUrlEncoded
+    @POST("/article/query/{page}/json")
+    suspend fun queryData(@Path("page") page: Int, @Field("k") k: String): ApiResults<ArticleData>
+
+    @GET("/friend/json")
+    suspend fun getWebsiteData(): ApiResults<MutableList<HotKeyData>>
+
+    @GET("lg/coin/userinfo/json")
+    suspend fun getUserRank(): ApiResults<UserRank>
+
+    @GET("/lg/coin/list/{page}/json")
+    suspend fun getUserRankInfo(@Path("page") page: Int): ApiResults<UserRankInfo>
+
+    @GET("/coin/rank/{page}/json")
+    suspend fun getRankList(@Path("page") page: Int): ApiResults<RankListData>
 }

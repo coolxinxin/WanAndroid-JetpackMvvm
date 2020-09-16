@@ -17,7 +17,6 @@ package com.xin.wanandroid.util
 
 import android.text.TextUtils
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.tencent.mmkv.MMKV
 import com.xin.wanandroid.core.bean.User
 
@@ -40,7 +39,6 @@ import com.xin.wanandroid.core.bean.User
 object UserManager {
 
     private val kvAppInfo by lazy { MMKV.mmkvWithID("app") }
-    private val kvCache by lazy { MMKV.mmkvWithID("cache") }
 
     /**
      * 获取账户信息
@@ -82,25 +80,4 @@ object UserManager {
         kvAppInfo.encode("login", isLogin)
     }
 
-
-    /**
-     * 获取搜索历史缓存数据
-     */
-    fun getSearchHistoryData(): ArrayList<String> {
-        val searchCacheStr = kvCache.decodeString("history")
-        if (!TextUtils.isEmpty(searchCacheStr)) {
-            return Gson().fromJson(
-                searchCacheStr
-                , object : TypeToken<ArrayList<String>>() {}.type
-            )
-        }
-        return arrayListOf()
-    }
-
-    /**
-     * 设置搜索历史缓存数据
-     */
-    fun setSearchHistoryData(searchResponseStr: String) {
-        kvCache.encode("history", searchResponseStr)
-    }
 }

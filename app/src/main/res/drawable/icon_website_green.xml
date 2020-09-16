@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024.0"
+    android:viewportHeight="1024.0">
+    <path
+        android:fillColor="@color/colorAccent"
+        android:pathData="M512 62C263.48 62 62 263.42 62 512s201.48 450 450 450c248.58 0 450-201.42 450-450S760.58 62 512 62zM332.24 166.1c19.56-10.2 40.02-18.9 61.32-25.68-22.14 32.46-41.22 73.74-56.16 121.5C315.08 247.64 302 230.54 302 212c0-16.86 11.46-32.4 30.24-45.9z m-87.3 62.16c6.96 35.22 34.56 66.84 77.58 90.48-11.1 50.04-18 105.06-19.8 163.26H123.5a388.56 388.56 0 0 1 121.44-253.74z m0 567.48A388.56 388.56 0 0 1 123.5 542h179.16c1.8 58.2 8.76 113.22 19.86 163.26-43.02 23.52-70.62 55.26-77.58 90.48z m87.3 62.16C313.46 844.4 302 828.8 302 812c0-18.54 13.08-35.7 35.4-49.98 14.94 47.82 34.02 89.04 56.16 121.56a385.68 385.68 0 0 1-61.32-25.68zM482 894.14c-37.68-19.86-70.14-76.74-91.8-155.22a398.94 398.94 0 0 1 91.8-15.66v170.88z m0-230.46a426.18 426.18 0 0 0-104.7 19.02A906 906 0 0 1 362.6 542H482v121.68zM482 482H362.6a906 906 0 0 1 14.7-140.7A431.82 431.82 0 0 0 482 360.38V482z m0-181.26a405.48 405.48 0 0 1-91.8-15.66c21.66-78.48 54.12-135.3 91.8-155.22v170.88z m297.06-72.48A388.2 388.2 0 0 1 900.44 482H721.28c-1.8-58.2-8.76-113.22-19.86-163.26 43.08-23.58 70.68-55.26 77.64-90.48z m-87.3-62.16C710.54 179.6 722 195.14 722 212c0 18.54-13.08 35.64-35.4 49.92-14.94-47.76-34.02-89.04-56.22-121.5a384 384 0 0 1 61.38 25.68zM542 129.86c37.74 19.92 70.2 76.74 91.8 155.22a405.48 405.48 0 0 1-91.8 15.66V129.86z m0 230.52a431.34 431.34 0 0 0 104.7-19.02c8.1 43.02 13.26 90.42 14.7 140.64H542V360.38zM542 542h119.4c-1.44 50.22-6.6 97.62-14.7 140.76A425.64 425.64 0 0 0 542 663.74V542z m0 352.14V723.26a398.94 398.94 0 0 1 91.8 15.66c-21.6 78.48-54.06 135.36-91.8 155.22z m149.76-36.24c-19.56 10.2-40.02 18.9-61.32 25.74 22.14-32.52 41.28-73.74 56.22-121.56 22.32 14.28 35.4 31.44 35.4 49.98-0.06 16.74-11.52 32.34-30.3 45.84z m87.3-62.16c-6.96-35.22-34.62-66.9-77.64-90.48A878.4 878.4 0 0 0 721.28 542h179.16a388.2 388.2 0 0 1-121.38 253.74z"
+        tools:ignore="VectorPath" />
+</vector>

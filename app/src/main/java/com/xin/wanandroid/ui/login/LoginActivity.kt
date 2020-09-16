@@ -23,6 +23,7 @@ import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
 import com.xin.wanandroid.ui.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.common_toolbar.*
 
 /**
  *
@@ -47,6 +48,8 @@ class LoginActivity : BaseVMActivity<LoginViewModel>() {
     override fun initLayoutView(): Int = R.layout.activity_login
 
     override fun initEvent() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         tvRegister.setOnNoRepeatClickListener {
             startActivity<RegisterActivity>()
         }

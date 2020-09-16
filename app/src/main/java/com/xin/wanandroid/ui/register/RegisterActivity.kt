@@ -20,6 +20,7 @@ import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseVMActivity
 import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.common_toolbar.*
 
 /**
  *
@@ -44,6 +45,8 @@ class RegisterActivity : BaseVMActivity<RegisterViewModel>() {
     override fun initLayoutView(): Int = R.layout.activity_register
 
     override fun initEvent() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         btRegister.setOnNoRepeatClickListener {
             val registerAccount = etRegisterAccount.text.toString()
             val registerPassword = etRegisterPassword.text.toString()

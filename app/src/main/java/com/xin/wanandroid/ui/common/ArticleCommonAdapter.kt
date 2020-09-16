@@ -16,6 +16,7 @@
 package com.xin.wanandroid.ui.common
 
 import android.graphics.Color
+import android.text.TextUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.xin.wanandroid.R
@@ -43,6 +44,13 @@ import java.util.*
  */
 class ArticleCommonAdapter : BaseQuickAdapter<DataX, BaseViewHolder>(R.layout.item_article_common) {
 
+    private var type: Type = Type.UNCOLLECT
+
+    //我的收藏列表中没有collect字段,为了能让我的收藏列表重用,增加一个type判断
+    fun setType(type: Type) {
+        this.type = type
+    }
+
     override fun convert(holder: BaseViewHolder, item: DataX) {
         holder.itemView.apply {
             val random = Random()
@@ -54,10 +62,10 @@ class ArticleCommonAdapter : BaseQuickAdapter<DataX, BaseViewHolder>(R.layout.it
             tvChapterName.setTextColor(Color.rgb(red, green, blue))
             tvAuthor.setTextColor(Color.rgb(red, green, blue))
             tvAuthor.text = when {
-                item.author.isNotEmpty() -> {
+                !TextUtils.isEmpty(item.author) -> {
                     item.author
                 }
-                item.shareUser.isNotEmpty() -> {
+                !TextUtils.isEmpty(item.shareUser) -> {
                     item.shareUser
                 }
                 else -> "匿名作者"
@@ -67,9 +75,17 @@ class ArticleCommonAdapter : BaseQuickAdapter<DataX, BaseViewHolder>(R.layout.it
             tvDesc.isVisible = item.desc.isNotEmpty()
             tvNew.isVisible = item.fresh
             tvProject.text = item.superChapterName
+            tvProject.isVisible = !TextUtils.isEmpty(item.superChapterName)
             tvTime.text = item.niceDate
             ivLike.isSelected = item.collect
+            if (type == Type.COLLECT) {
+                ivLike.isSelected = true
+            }
         }
         addChildClickViewIds(R.id.ivLike)
+    }
+
+    enum class Type {
+        COLLECT, UNCOLLECT
     }
 }

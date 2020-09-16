@@ -50,7 +50,9 @@ class LoginViewModel : BaseViewModel() {
                 loginStatus.value = true
             }, {
                 loginStatus.value = false
-            }
+            },
+            isShowDialog = true
+        ,dialogMsg = "正在登录中..."
         )
     }
 }

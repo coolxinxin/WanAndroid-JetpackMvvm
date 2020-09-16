@@ -67,13 +67,19 @@ open class BaseViewModel : ViewModel() {
 
     protected fun request(
         block: suspend () -> Unit,
-        error: (suspend (Exception) -> Unit)? = null
+        error: (suspend (Exception) -> Unit)? = null,
+        isShowDialog: Boolean = false,
+        dialogMsg: String = "小鑫正在为你努力加载中"
     ): Job {
         return viewModelScope.launch {
             try {
-//                mOnDialogListener.onShowDialog?.invoke("小鑫正在为你努力加载中")
+                if (isShowDialog) {
+                    mOnDialogListener.onShowDialog?.invoke(dialogMsg)
+                }
                 block()
-//                mOnDialogListener.onCloseDialog?.invoke()
+                if (isShowDialog) {
+                    mOnDialogListener.onCloseDialog?.invoke()
+                }
             } catch (e: Exception) {
                 Log.e(TAG, "request:$e")
 //                mOnDialogListener.onShowErrorDialog?.invoke("请求异常${e.message}...")

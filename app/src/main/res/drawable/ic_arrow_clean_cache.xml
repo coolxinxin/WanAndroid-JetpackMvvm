@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="1024.0"
+    android:viewportHeight="1024.0">
+
+    <path
+        android:fillColor="#2CC197"
+        android:pathData="M777.2672 377.4976h-101.0432V152.832c0-84.3008-69.1456-152.832-154.2144-152.832s-154.2144 68.5312-154.2144 152.832v224.6656h-122.624C166.4512 377.4976 102.4 440.96 102.4 518.9632v461.7472c0 23.5264 19.3024 42.6496 43.0592 42.6496h186.4704c11.4432 0 22.3232-4.5056 30.464-12.4672l47.9744-47.5392 37.76 37.3248c8.0384 7.9616 18.9952 12.4672 30.464 12.4672H877.056c23.7568 0 43.0592-19.1232 43.0592-42.6752V518.9632c-0.1024-78.0032-64.1536-141.4656-142.848-141.4656zM453.888 152.832c0-37.2224 30.5664-67.5072 68.1216-67.5072s68.1216 30.2848 68.1216 67.5072v224.6656H453.888V152.832zM188.4928 518.9632c0-30.9504 25.4464-56.1664 56.6784-56.1664h532.096c31.232 0 56.6784 25.216 56.6784 56.1664v29.056H188.4928v-29.056z m645.4528 408.8576H496.384l-55.5264-55.04a43.2128 43.2128 0 0 0-60.8256 0l-65.8688 65.28H188.4928V633.344h645.4528v294.4768zM516.608 882.0736c23.7568 0 43.0592-19.1232 43.0592-42.6496v-127.8976c0-23.5264-19.3024-42.6496-43.0592-42.6496-23.7312 0-43.0336 19.1232-43.0336 42.6496v127.8976c0 23.6032 19.3024 42.6496 43.0336 42.6496z m-202.6496 0c23.7568 0 43.0336-19.1232 43.0336-42.6496v-127.8976c0-23.5264-19.2768-42.6496-43.0336-42.6496s-43.0592 19.1232-43.0592 42.6496v127.8976a42.88 42.88 0 0 0 43.0592 42.6496z m405.248 0c23.7312 0 43.008-19.1232 43.008-42.6496v-127.8976c0-23.5264-19.2768-42.6496-43.008-42.6496-23.7824 0-43.0592 19.1232-43.0592 42.6496v127.8976a42.88 42.88 0 0 0 43.0336 42.6496z"
+        tools:ignore="VectorPath" />
+
+</vector>

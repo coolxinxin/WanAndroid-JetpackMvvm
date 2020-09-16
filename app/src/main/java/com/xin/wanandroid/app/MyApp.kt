@@ -77,12 +77,12 @@ class MyApp : Application() {
 
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context: Context, layout: RefreshLayout ->
-            layout.setPrimaryColors(ContextCompat.getColor(context, R.color.blue))
+            layout.setPrimaryColors(ContextCompat.getColor(context, R.color.colorPrimary))
             PhoenixHeader(context)
         }
 
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context: Context, layout: RefreshLayout ->
-            layout.setPrimaryColors(ContextCompat.getColor(context, R.color.blue))
+            layout.setPrimaryColors(ContextCompat.getColor(context, R.color.colorPrimary))
             ClassicsFooter(context)
         }
     }

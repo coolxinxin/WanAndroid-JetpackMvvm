@@ -17,9 +17,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/item_website"
+        android:icon="@drawable/icon_website"
+        android:orderInCategory="100"
+        android:title="搜索 "
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/item_search"
         android:icon="@drawable/ic_arrow_search"
         android:orderInCategory="100"
         android:title="搜索 "
-       app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom" />
+
 </menu>

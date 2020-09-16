@@ -46,7 +46,8 @@ class KnowledgeViewModel : BaseViewModel() {
                 knowledgeData.value = mApiRepository.getKnowledgeData()
             },{
                 isReload.value = knowledgeData.value.isNullOrEmpty()
-            }
+            },
+            isShowDialog = knowledgeData.value.isNullOrEmpty()
         )
     }
 }

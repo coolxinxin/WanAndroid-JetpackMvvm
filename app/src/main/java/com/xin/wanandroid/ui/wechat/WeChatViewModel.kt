@@ -47,6 +47,7 @@ class WeChatViewModel : BaseViewModel() {
             }, {
                 isReload.value = weChatData.value.isNullOrEmpty()
             }
+            ,isShowDialog = weChatData.value.isNullOrEmpty()
         )
     }
 

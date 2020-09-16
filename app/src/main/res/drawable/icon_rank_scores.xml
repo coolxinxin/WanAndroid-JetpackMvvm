@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="1024.0"
+    android:viewportHeight="1024.0">
+    <path
+        android:fillColor="@color/colorPrimary"
+        android:pathData="M556.487111 697.116444l-0.796444 176.355556 178.403555 1.479111-1.137778 109.568-448.455111-3.584 1.080889-109.624889 188.586667 1.536 0.796444-172.942222a309.930667 309.930667 0 0 1-193.422222-93.297778 324.494222 324.494222 0 0 1-88.632889-178.062222 145.635556 145.635556 0 0 1-91.363555-36.977778C79.644444 371.939556 62.179556 345.201778 49.607111 311.751111A355.555556 355.555556 0 0 1 28.444444 200.817778V107.064889h160.597334V0h634.311111v119.751111h154.396444v90.339556c0 2.161778-0.568889 54.215111-21.219555 106.951111-12.629333 32.085333-30.151111 57.969778-52.053334 76.8-23.893333 20.48-52.565333 32.369778-85.504 35.271111a327.111111 327.111111 0 0 1-88.917333 176.583111 313.457778 313.457778 0 0 1-173.511111 91.420444z m-367.502222-321.479111V159.573333H75.207111v40.96c0 1.706667 0.625778 46.364444 17.408 90.737778 19.626667 52.053333 51.2 79.758222 96.483556 84.366222z m634.311111-205.255111V377.742222c41.927111-6.257778 71.509333-32.824889 90.282667-80.384a276.081778 276.081778 0 0 0 17.521777-87.438222v-39.480889h-107.804444zM419.271111 299.064889l39.196445 38.343111 137.614222-140.515556-39.139556-38.343111-137.671111 140.515556z m-1.820444 174.933333l39.367111 38.115556L597.105778 367.502222l-39.367111-38.115555-140.288 144.668444z"
+        tools:ignore="VectorPath" />
+</vector>

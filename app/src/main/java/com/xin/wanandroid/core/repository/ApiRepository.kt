@@ -51,7 +51,14 @@ class ApiRepository {
 
     suspend fun collect(id: Int) = HttpUtils.api.collect(id).apiData()
 
+    suspend fun collect(title: String, auth: String, link: String) =
+        HttpUtils.api.collect(title, auth, link).apiData()
+
     suspend fun unCollect(id: Int) = HttpUtils.api.unCollect(id).apiData()
+
+    suspend fun getCollectList(page: Int) = HttpUtils.api.getCollectList(page).apiData()
+
+    suspend fun cancelCollect(id: Int) = HttpUtils.api.cancelCollect(id).apiData()
 
     suspend fun getKnowledgeData() = HttpUtils.api.getKnowledgeData().apiData()
 
@@ -76,4 +83,17 @@ class ApiRepository {
 
     suspend fun getWeChatSearchData(id: Int, page: Int, k: String) =
         HttpUtils.api.getWeChatSearchData(id, page, k).apiData()
+
+    suspend fun getHotKeyData() = HttpUtils.api.getHotKeyData().apiData()
+
+    suspend fun queryData(page: Int, k: String) = HttpUtils.api.queryData(page, k).apiData()
+
+    suspend fun getWebsiteData() = HttpUtils.api.getWebsiteData().apiData()
+
+    suspend fun getUserRank() = HttpUtils.api.getUserRank().apiData()
+
+    suspend fun getUserRankInfo(page: Int) = HttpUtils.api.getUserRankInfo(page).apiData()
+
+    suspend fun getRankList(page: Int) = HttpUtils.api.getRankList(page).apiData()
+
 }

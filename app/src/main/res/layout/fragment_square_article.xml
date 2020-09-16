@@ -29,7 +29,7 @@
         android:id="@+id/srfSquareArticle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlPrimaryColor="@color/blue">
+        app:srlPrimaryColor="@color/colorPrimary">
 
         <com.scwang.smartrefresh.header.DropBoxHeader
             android:layout_width="match_parent"

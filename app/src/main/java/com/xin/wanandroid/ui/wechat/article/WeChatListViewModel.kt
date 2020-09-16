@@ -59,7 +59,8 @@ class WeChatListViewModel : BaseViewModel() {
                 }
             }, {
                 isReload.value = articleData.value.isNullOrEmpty()
-            }
+            },
+            isShowDialog = articleData.value.isNullOrEmpty()
         )
     }
 
@@ -86,7 +87,10 @@ class WeChatListViewModel : BaseViewModel() {
     fun searchWeChatData(id: Int, k: String) {
         request(
             {
-                mApiRepository.getWeChatSearchData(id, page, k)
+               val article =  mApiRepository.getWeChatSearchData(id, page, k)
+                articleData.value = mutableListOf<DataX>().apply {
+                    addAll(article.datas)
+                }
             }
         )
     }

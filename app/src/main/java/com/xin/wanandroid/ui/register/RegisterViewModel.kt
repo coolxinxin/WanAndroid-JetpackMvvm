@@ -46,7 +46,9 @@ class RegisterViewModel : BaseViewModel() {
                 registerState.value = true
             },{
                 registerState.value = false
-            }
+            },
+            isShowDialog = true
+            ,dialogMsg = "正在注册中..."
         )
     }
 }

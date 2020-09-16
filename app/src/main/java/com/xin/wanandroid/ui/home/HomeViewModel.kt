@@ -77,7 +77,8 @@ class HomeViewModel : BaseViewModel() {
                 }
             }, {
                 isReload.value = articleData.value.isNullOrEmpty()
-            }
+            },
+            isShowDialog = articleData.value.isNullOrEmpty()
         )
     }
 

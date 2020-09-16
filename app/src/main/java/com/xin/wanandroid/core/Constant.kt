@@ -49,4 +49,6 @@ object Constant {
 
     const val KNOWLEDGE_DATA = "knowledge_data"
 
+    const val SEARCH_DATA = "search_data"
+
 }

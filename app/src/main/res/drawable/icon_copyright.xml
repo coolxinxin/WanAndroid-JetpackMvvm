@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2020 Leo
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="1024.0"
+    android:viewportHeight="1024.0">
+
+    <path
+        android:fillColor="@color/colorPrimary"
+        android:pathData="M696.5 443.8s-5.6-5.6-16.7-5.6H579.3c11.2 61.4 33.5 106 55.8 139.5 22.3-33.5 39.1-72.6 55.8-117.2 5.6-5.6 5.6-11.2 5.6-16.7zM512.3 64.2s-61.4 111.6-390.7 111.6v457.7c0 178.6 390.7 323.7 390.7 323.7S903 812.1 903 633.5V175.9c-329.3 0-390.7-111.7-390.7-111.7z m-61.4 480v145.1c0 11.2-5.6 16.7-16.7 22.3-11.2 0-16.7-5.6-16.7-22.3V561c0-5.6-5.6-11.2-11.2-11.2h-44.7c0 55.8-11.2 106-27.9 150.7-5.6 11.2-11.2 16.7-22.3 11.2-11.2-5.6-11.2-11.2-11.2-22.3 22.3-50.2 33.5-106 33.5-173V309.8c0-11.2 5.6-16.7 16.7-16.7 11.2 0 16.7 5.6 16.7 16.7v100.5h44.7V309.8c0-11.2 5.6-16.7 16.7-16.7 11.2 0 16.7 5.6 16.7 16.7v100.5h33.5c11.2 0 16.7 5.6 16.7 16.7 0 11.2-5.6 16.7-16.7 16.7H367.2v72.6H423c16.7 0 27.9 11.2 27.9 27.9z m295.8 161.9c-5.6 5.6-16.7 5.6-27.9 0-27.9-16.7-55.8-39.1-78.1-67-27.9 22.3-55.8 44.7-89.3 67-11.2 5.6-22.3 5.6-33.5 0-5.6-11.2-5.6-22.3 11.2-27.9 39.1-22.3 67-44.7 89.3-67-33.5-44.7-55.8-100.5-67-167.4h-5.6c0 61.4-5.6 106-11.2 145.1-5.6 39.1-16.7 72.6-33.5 111.6-5.6 11.2-16.7 16.7-27.9 11.2-16.7-5.6-16.7-16.7-11.2-27.9 16.7-33.5 27.9-67 33.5-94.9 5.6-27.9 5.6-78.1 5.6-139.5V348.9c0-22.3 11.2-33.5 33.5-33.5 72.6 0 128.4-5.6 178.6-16.7 11.2 0 22.3 0 22.3 16.7 0 11.2-5.6 16.7-16.7 22.3-44.7 5.6-100.5 11.2-167.4 16.7-11.2 0-16.7 5.6-16.7 16.7v44.7H691c33.5 0 44.7 11.2 33.5 39.1-16.7 67-39.1 122.8-67 161.9 16.7 22.3 39.1 44.7 78.1 67 16.7 5.5 16.7 11.1 11.1 22.3z"
+        tools:ignore="VectorPath" />
+
+</vector>

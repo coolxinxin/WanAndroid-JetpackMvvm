@@ -45,7 +45,8 @@ class MineViewModel : BaseViewModel() {
                 mApiRepository.logout()
                 user = null
                 LiveBus.post(Constant.LOGIN_STATUS, false)
-            }
+            },
+            isShowDialog = true
         )
     }
 }

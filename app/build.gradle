@@ -23,6 +23,54 @@ android {
         }
     }
 
+    signingConfigs {
+        leo {
+            storeFile file(RELEASE_STORE_FILE1)
+            storePassword RELEASE_STORE_PASSWORD1
+            keyAlias RELEASE_KEY_ALIAS1
+            keyPassword RELEASE_KEY_PASSWORD1
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+    }
+
+    flavorDimensions "wanandroid"
+
+    productFlavors {
+        leo {
+            dimension "wanandroid"
+            applicationId 'com.xin.wanandroid'
+            signingConfig signingConfigs.leo
+        }
+
+    }
+
+//    sourceSets {
+//        main {
+//            res.srcDirs = ['src/main/res']
+//            java.srcDirs = ['src/main/java']
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+//        }
+//
+//        debug {
+//            manifest.srcFile "src/main/AndroidManifest.xml"
+//        }
+//
+//        leo {
+//            res.srcDirs = ['src/main/res']
+//            java.srcDirs = ['src/main/java']
+//            manifest.srcFile "src/main/AndroidManifest.xml"
+//        }
+//
+//    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "WanAndroid.apk"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'

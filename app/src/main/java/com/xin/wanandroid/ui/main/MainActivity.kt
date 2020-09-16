@@ -24,9 +24,11 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseSimpleActivity
+import com.xin.wanandroid.ext.startActivity
 import com.xin.wanandroid.ui.home.HomeFragment
 import com.xin.wanandroid.ui.mine.MineFragment
 import com.xin.wanandroid.ui.project.ProjectFragment
+import com.xin.wanandroid.ui.search.SearchActivity
 import com.xin.wanandroid.ui.square.SquareFragment
 import com.xin.wanandroid.ui.wechat.WeChatFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -115,7 +117,12 @@ class MainActivity : BaseSimpleActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.item_search ->{}
+            R.id.item_search -> {
+                startActivity<SearchActivity>()
+            }
+            R.id.item_website -> {
+                startActivity<WebsiteActivity>()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

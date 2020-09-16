@@ -18,6 +18,7 @@ package com.xin.wanandroid.ext
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import com.xin.wanandroid.ui.login.LoginActivity
 
 /**
  *
@@ -44,4 +45,10 @@ inline fun <reified T : Activity> Context.startActivity(action: Intent.() -> Uni
     val intent = Intent(this, T::class.java)
     action(intent)
     startActivity(intent)
+}
+
+inline fun <reified T : Activity> Context.checkStartActivity() {
+    if (isLogin) startActivity(Intent(this, T::class.java)) else startActivity(
+        Intent(this, LoginActivity::class.java)
+    )
 }

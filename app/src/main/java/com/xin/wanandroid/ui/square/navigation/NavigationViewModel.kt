@@ -48,7 +48,8 @@ class NavigationViewModel : BaseViewModel() {
                 this.navigationData.value = navigationData
             }, {
                 isReload.value = navigationData.value.isNullOrEmpty()
-            }
+            },
+            isShowDialog = navigationData.value.isNullOrEmpty()
         )
     }
 }
