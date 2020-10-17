@@ -22,11 +22,14 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener
 import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseVMActivity
 import com.xin.wanandroid.core.Constant
+import com.xin.wanandroid.ext.isVisible
+import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
 import com.xin.wanandroid.ui.common.ArticleCommonAdapter
 import com.xin.wanandroid.ui.webview.WebViewActivity
 import com.xin.wanandroid.util.LiveBus
 import kotlinx.android.synthetic.main.activity_collect.*
+import kotlinx.android.synthetic.main.common_reload.*
 import kotlinx.android.synthetic.main.common_toolbar.*
 
 /**
@@ -94,6 +97,10 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
             }
             rvCollect.adapter = adapter
         }
+
+        btReload.setOnNoRepeatClickListener {
+            mViewModel.getCollectList()
+        }
     }
 
     override fun initData() {
@@ -109,6 +116,10 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
                     RefreshState.LoadFinish -> srfCollect.finishLoadMore()
                     else -> return@Observer
                 }
+            })
+
+            isReload.observe(this@CollectActivity, Observer {
+                reloadCollect.isVisible = it
             })
 
             LiveBus.observe<Pair<Int, Boolean>>(

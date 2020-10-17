@@ -110,6 +110,7 @@ class HomeFragment : BaseVMFragment<HomeViewModel>() {
 
         })
         btReload.setOnNoRepeatClickListener {
+            mViewModel.getBannerData()
             mViewModel.getHomeData()
         }
     }

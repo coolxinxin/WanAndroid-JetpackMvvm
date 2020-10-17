@@ -21,6 +21,13 @@
 
     <include layout="@layout/common_toolbar" />
 
+    <include
+        android:id="@+id/reloadCollect"
+        layout="@layout/common_reload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/srfCollect"
         android:layout_width="match_parent"

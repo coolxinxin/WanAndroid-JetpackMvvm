@@ -35,16 +35,21 @@ import com.xin.wanandroid.core.bean.HotKeyData
  *@since : xinxiniscool@gmail.com
  *@desc :
  */
-class WebsiteViewModel :BaseViewModel() {
+class WebsiteViewModel : BaseViewModel() {
 
     val hotKeyData: MutableLiveData<MutableList<HotKeyData>> = MutableLiveData()
 
+    val isReload: MutableLiveData<Boolean> = MutableLiveData()
+
     fun getWebsiteData() {
+        isReload.value = false
         request(
             {
                 hotKeyData.value = mApiRepository.getWebsiteData()
-            },
-            isShowDialog = true
+            }, {
+                isReload.value = hotKeyData.value.isNullOrEmpty()
+            }
+            , isShowDialog = true
         )
     }
 

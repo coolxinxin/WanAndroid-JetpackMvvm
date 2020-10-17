@@ -23,11 +23,14 @@ import com.xin.wanandroid.R
 import com.xin.wanandroid.base.BaseVMActivity
 import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.core.bean.HotKeyData
+import com.xin.wanandroid.ext.isVisible
+import com.xin.wanandroid.ext.setOnNoRepeatClickListener
 import com.xin.wanandroid.ext.startActivity
 import com.xin.wanandroid.ui.webview.WebViewActivity
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.activity_website.*
+import kotlinx.android.synthetic.main.common_reload.*
 
 
 /**
@@ -53,6 +56,9 @@ class WebsiteActivity : BaseVMActivity<WebsiteViewModel>() {
     override fun initLayoutView(): Int = R.layout.activity_website
 
     override fun initEvent() {
+        btReload.setOnNoRepeatClickListener {
+            mViewModel.getWebsiteData()
+        }
     }
 
     override fun initData() {
@@ -82,6 +88,9 @@ class WebsiteActivity : BaseVMActivity<WebsiteViewModel>() {
                     finish()
                     true
                 }
+            })
+            isReload.observe(this@WebsiteActivity, Observer {
+                reloadWebsite.isVisible = it
             })
         }
     }

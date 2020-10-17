@@ -29,6 +29,13 @@
         android:textColor="@color/white"
         android:textSize="28sp" />
 
+    <include
+        android:id="@+id/reloadWebsite"
+        layout="@layout/common_reload"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
     <com.zhy.view.flowlayout.TagFlowLayout
         android:id="@+id/flWebsite"
         android:layout_width="match_parent"

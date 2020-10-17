@@ -44,9 +44,12 @@ class CollectViewModel : BaseViewModel() {
 
     val refreshData: MutableLiveData<RefreshState> = MutableLiveData()
 
+    val isReload: MutableLiveData<Boolean> = MutableLiveData()
+
     private var page = 0
 
     fun getCollectList() {
+        isReload.value = false
         request(
             {
                 page = 0
@@ -55,12 +58,15 @@ class CollectViewModel : BaseViewModel() {
                 articleData.value = mutableListOf<DataX>().apply {
                     addAll(article.datas)
                 }
+            }, {
+                isReload.value = articleData.value.isNullOrEmpty()
             },
             isShowDialog = articleData.value.isNullOrEmpty()
         )
     }
 
     fun getMoreCollectList() {
+        isReload.value = false
         request(
             {
                 val article = mApiRepository.getCollectList(page)
@@ -73,6 +79,8 @@ class CollectViewModel : BaseViewModel() {
                 } else {
                     RefreshState.LoadFinish
                 }
+            }, {
+                isReload.value = articleData.value.isNullOrEmpty()
             }
         )
     }

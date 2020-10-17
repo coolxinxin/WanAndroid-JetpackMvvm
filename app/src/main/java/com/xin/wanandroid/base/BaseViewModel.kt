@@ -16,6 +16,7 @@
 package com.xin.wanandroid.base
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
@@ -60,8 +61,9 @@ open class BaseViewModel : ViewModel() {
     }
 
     val mApiRepository by lazy { ApiRepository() }
+
     //不喜欢使用Bus可以将数据放到Base中共享
-//    val collect: MutableList<Boolean> = MutableList()
+    val collect: MutableLiveData<Pair<Int, Boolean>> = MutableLiveData()
 
     private lateinit var mOnDialogListener: OnDialogListener
 
