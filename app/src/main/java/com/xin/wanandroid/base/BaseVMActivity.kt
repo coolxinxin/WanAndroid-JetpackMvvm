@@ -16,7 +16,12 @@
 package com.xin.wanandroid.base
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.xin.wanandroid.core.Constant
+import com.xin.wanandroid.ext.startActivity
+import com.xin.wanandroid.ui.login.LoginActivity
+import com.xin.wanandroid.util.LiveBus
 
 /**
  *
@@ -41,11 +46,20 @@ abstract class BaseVMActivity<VM : BaseViewModel> : BaseSimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         createViewModel()
         registerListener()
+        observerLoginStatus()
         super.onCreate(savedInstanceState)
     }
 
     private fun createViewModel() {
         mViewModel = ViewModelProvider(this).get(getViewModelClass())
+    }
+
+    private fun observerLoginStatus(){
+        LiveBus.observe<Boolean>(Constant.LOGIN_STATUS,this, Observer {
+            if (!it){
+                startActivity<LoginActivity>()
+            }
+        })
     }
 
     private fun registerListener() {

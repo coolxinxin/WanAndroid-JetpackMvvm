@@ -21,13 +21,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ToastUtils
 import com.google.gson.JsonParseException
-import com.xin.wanandroid.app.MyApp
 import com.xin.wanandroid.core.Constant
 import com.xin.wanandroid.core.http.AppException
 import com.xin.wanandroid.core.repository.ApiRepository
-import com.xin.wanandroid.ext.startActivity
 import com.xin.wanandroid.ext.user
-import com.xin.wanandroid.ui.login.LoginActivity
 import com.xin.wanandroid.util.LiveBus
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Job
@@ -107,7 +104,6 @@ open class BaseViewModel : ViewModel() {
                     -1001 -> {
                         //登录失效,将登录状态标记为fail
                         user = null
-                        MyApp.getInstance().startActivity<LoginActivity>()
                         LiveBus.post(Constant.LOGIN_STATUS, false)
                         //因为弹出框的时候立马就进入了登录界面,不想延时进入,就先弹个Toast提示一下(非常不情愿的加上)
                         ToastUtils.showShort(e.message)
